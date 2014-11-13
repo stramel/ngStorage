@@ -1,3 +1,7 @@
+# This Pacakge is DEPRECATED.
+
+Please refer to [Angular Locker](https://github.com/tymondesigns/angular-locker) for a better implementation.
+
 ngStorage
 =========
 

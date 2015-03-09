@@ -75,25 +75,25 @@
 
                     _last$storage = angular.copy($storage);
 
-                    $rootScope.$watch(function() {
-                        _debounce || (_debounce = $timeout(function() {
-                            _debounce = null;
-
-                            if (!angular.equals($storage, _last$storage)) {
-                                angular.forEach($storage, function(v, k) {
-                                    angular.isDefined(v) && '$' !== k[0] && webStorage.setItem(prefix + k, angular.toJson(v));
-
-                                    delete _last$storage[k];
-                                });
-
-                                for (var k in _last$storage) {
-                                    webStorage.removeItem(prefix + k);
-                                }
-
-                                _last$storage = angular.copy($storage);
-                            }
-                        }, 100));
-                    });
+                    // $rootScope.$watch(function() {
+                    //     _debounce || (_debounce = $timeout(function() {
+                    //         _debounce = null;
+                    //
+                    //         if (!angular.equals($storage, _last$storage)) {
+                    //             angular.forEach($storage, function(v, k) {
+                    //                 angular.isDefined(v) && '$' !== k[0] && webStorage.setItem(prefix + k, angular.toJson(v));
+                    //
+                    //                 delete _last$storage[k];
+                    //             });
+                    //
+                    //             for (var k in _last$storage) {
+                    //                 webStorage.removeItem(prefix + k);
+                    //             }
+                    //
+                    //             _last$storage = angular.copy($storage);
+                    //         }
+                    //     }, 100));
+                    // });
 
                     // #6: Use `$window.addEventListener` instead of `angular.element` to avoid the jQuery-specific `event.originalEvent`
                     'localStorage' === storageType && $window.addEventListener && $window.addEventListener('storage', function(event) {
